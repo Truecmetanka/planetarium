@@ -25,8 +25,14 @@ public class Person {
 
     String role;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "perosn_id")
+    @ManyToMany (fetch = FetchType.EAGER,cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "person_article",
+            joinColumns = @JoinColumn(name = "person_id"),
+            inverseJoinColumns = @JoinColumn(name = "article_id")
+    )
     private List<Article> favorites = new ArrayList<>();
 
 }

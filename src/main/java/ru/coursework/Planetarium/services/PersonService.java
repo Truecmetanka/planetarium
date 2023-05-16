@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.coursework.Planetarium.entity.Article;
 import ru.coursework.Planetarium.entity.Person;
+import ru.coursework.Planetarium.repositories.ArticleRepository;
 import ru.coursework.Planetarium.repositories.PersonRepository;
 import ru.coursework.Planetarium.security.AuthenticatedPersonService;
 
@@ -19,6 +20,7 @@ public class PersonService {
     public void addArticleToFavorites(Article article) {
         Person personToAddFav = authenticatedPersonService.getAuthenticatedPerson();
         personToAddFav.getFavorites().add(article);
+        article.getFollowers().add(personToAddFav);
         personRepository.save(personToAddFav);
     }
 

@@ -1,13 +1,13 @@
 package ru.coursework.Planetarium.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -30,4 +30,9 @@ public class Article {
     String url_body_img;
 
     LocalDate creation_date;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "favorites")
+    private Set<Person> followers = new HashSet<>();
+
 }

@@ -24,15 +24,13 @@ public class ArticleController {
         articleService.addArticle(article);
     }
 
-    @GetMapping()
+    @GetMapping("/all")
     public List<Article> getArticles() {
         return articleService.getAll();
     }
 
     @PostMapping("/add_to_fav/{id}")
     public void addArticleToFav(@PathVariable("id") int id) {
-        System.out.println(articleService.getById(id));
-        System.out.println("hui");
         personService.addArticleToFavorites(articleService.getById(id));
     }
 
