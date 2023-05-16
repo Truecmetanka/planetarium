@@ -2,13 +2,13 @@ package ru.coursework.Planetarium.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.coursework.Planetarium.repositories.UserRepository;
+import ru.coursework.Planetarium.repositories.PersonRepository;
 
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class PersonService {
 
-    private final UserRepository userRepository;
+    private final PersonRepository personRepository;
 
 
 }

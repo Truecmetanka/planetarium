@@ -7,12 +7,17 @@ import org.springframework.stereotype.Service;
 import ru.coursework.Planetarium.entity.Article;
 import ru.coursework.Planetarium.repositories.ArticleRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ArticleService {
 
     private final ArticleRepository articleRepository;
 
+    public List<Article> getAll() {
+        return articleRepository.findAll();
+    }
 
     public Article getById(long id) {
         return articleRepository.findById(id).orElse(null);

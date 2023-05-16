@@ -10,8 +10,7 @@ import lombok.experimental.FieldDefaults;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "user_")
-public class User {
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +18,8 @@ public class User {
 
     String email;
     String password;
+    String name;
 
-    @Enumerated(EnumType.STRING)
-    Role role;
+    String role;
 
 }
