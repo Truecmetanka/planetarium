@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PlanetariumApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PlanetariumApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(PlanetariumApplication.class, args);
+    }
 
 }

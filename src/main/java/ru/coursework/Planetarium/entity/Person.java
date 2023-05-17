@@ -25,7 +25,7 @@ public class Person {
 
     String role;
 
-    @ManyToMany (fetch = FetchType.EAGER,cascade = {
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
     })
@@ -34,5 +34,6 @@ public class Person {
             inverseJoinColumns = @JoinColumn(name = "article_id")
     )
     private List<Article> favorites = new ArrayList<>();
+
 
 }

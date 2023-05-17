@@ -9,6 +9,7 @@ import org.hibernate.annotations.FetchMode;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -40,5 +41,9 @@ public class Article {
     @ManyToMany(mappedBy = "favorites")
     @ToString.Exclude
     private Set<Person> followers = new HashSet<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "article")
+    private List<Comment> feedComments;
 
 }
