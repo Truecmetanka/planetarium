@@ -9,4 +9,5 @@ import lombok.experimental.FieldDefaults;
 public class ArticleDTO {
     private long id;
     private String title;
+    private String description;
 }

@@ -4,13 +4,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -32,7 +36,9 @@ public class Article {
     LocalDate creation_date;
 
     @JsonIgnore
+    @Fetch(FetchMode.JOIN)
     @ManyToMany(mappedBy = "favorites")
+    @ToString.Exclude
     private Set<Person> followers = new HashSet<>();
 
 }
